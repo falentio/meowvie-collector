@@ -13,7 +13,6 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
     "format": "dprint fmt",
     "dev": "tsx src/index.ts",
     "start": "tsx src/index.ts",
@@ -24,9 +23,7 @@
     "@parcel/transformer-typescript-tsc": "^2.9.1",
     "@types/node": "^20.2.5",
     "dprint": "^0.36.1",
-    "parcel": "^2.9.1",
-    "typescript": "^5.0.4",
-    "unbuild": "^1.2.1"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@meowvie-collector/client": "^1.0.0",
