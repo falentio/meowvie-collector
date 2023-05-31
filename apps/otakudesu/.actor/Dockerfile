@@ -9,4 +9,4 @@ COPY packages packages
 COPY apps/otakudesu apps/otakudesu
 RUN npm run build -ws --if-present
 
-RUN npm run -w @meowvie-collector/otakudesu start
+CMD npm run -w @meowvie-collector/otakudesu start
