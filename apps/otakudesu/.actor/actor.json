@@ -3,7 +3,7 @@
 	"name": "otakudesu",
 	"version": "0.0",
 	"buildTag": "latest",
-	"dockerContextDir": "../../",
+	"dockerContextDir": "../../../",
 	"dockerfile": "./Dockerfile",
 	"environmentVariables": {}
 }
