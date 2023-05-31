@@ -1,7 +1,7 @@
 FROM node:16-alpine as builder
 
-COPY packages/*/package* ./packages/*/
-COPY apps/*/package* ./apps/*/
+COPY packages packages
+COPY apps apps
 COPY package* ./
 RUN npm ci
 
