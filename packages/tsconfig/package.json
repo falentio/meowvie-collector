@@ -1,0 +1,7 @@
+{
+  "name": "@meowvie-collector/tsconfig",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.4"
+  }
+}

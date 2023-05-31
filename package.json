@@ -1,0 +1,25 @@
+{
+  "name": "meowvie-collector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "./packages",
+    "./apps",
+    "packages/client",
+    "packages/tsconfig",
+    "apps/otakudesu"
+  ],
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "v16.x"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.9.1",
+    "@parcel/transformer-typescript-types": "^2.9.1",
+    "typescript": "^5.0.4"
+  }
+}
