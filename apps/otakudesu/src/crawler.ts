@@ -12,7 +12,6 @@ export interface Options {
 export function createCrawler({ meowvie: m, domain }: Options) {
     const meowvie = new Meowvie(m.secret, m.endpoint)
     const crawler = new JSDOMCrawler({
-        maxRequestsPerMinute: 50,
         maxConcurrency: 1,
     })
     
