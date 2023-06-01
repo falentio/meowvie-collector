@@ -48,7 +48,7 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
             const liEls = window.document.querySelectorAll("div.dzdesu ul li")
             const downloadUrl = [] as DownloadUrl[]
             for (const li of liEls) {
-                if (li.querySelector(":first-child")?.tagName !== "strong") {
+                if (li.querySelector(":first-child")?.tagName !== "STRONG") {
                     continue
                 }
                 const resolution = li.querySelector("strong:first-child")?.textContent
@@ -88,7 +88,7 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
     return {
         crawler,
         run() {
-            return crawler.run(["https://melongmovie.site/the-black-demon-2023-subtitle-indonesia/", "https://melongmovie.site"])
+            return crawler.run(["https://melongmovie.site/reality-2023/", "https://melongmovie.site"])
         }
     }
 }
