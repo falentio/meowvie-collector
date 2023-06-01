@@ -48,7 +48,7 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
             const liEls = window.document.querySelectorAll("div.dzdesu ul li")
             const downloadUrl = [] as DownloadUrl[]
             for (const li of liEls) {
-                if (!li.querySelector("strong:first-child")) {
+                if (li.querySelector(":first-child")?.tagName !== "strong") {
                     continue
                 }
                 const resolution = li.querySelector("strong:first-child")?.textContent
@@ -56,6 +56,7 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
                 if (size === resolution) {
                     size = null
                 }
+                console.log(resolution, size)
                 for (const a of li.querySelectorAll("a")) {
                     const url = a.href || ""
                     const server = a.textContent || ""
