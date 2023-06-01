@@ -56,7 +56,6 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
                 if (size === resolution) {
                     size = null
                 }
-                console.log(resolution, size)
                 for (const a of li.querySelectorAll("a")) {
                     const url = a.href || ""
                     const server = a.textContent || ""
