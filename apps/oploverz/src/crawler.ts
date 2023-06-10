@@ -1,5 +1,5 @@
 import { type DownloadUrl, Meowvie } from "@meowvie-collector/client";
-import { JSDOMCrawler } from "crawlee";
+import { JSDOMCrawler, ProxyConfiguration } from "crawlee";
 
 export interface Options {
 	meowvie: {
@@ -7,11 +7,15 @@ export interface Options {
 		endpoint: string;
 	};
 	domain: string;
+	proxies?: string[];
 }
 
-export function createCrawler({ meowvie: m, domain }: Options) {
+export function createCrawler({ meowvie: m, domain, proxies }: Options) {
+	const proxyConfiguration = new ProxyConfiguration({
+		proxyUrls: proxies,
+	});
 	const meowvie = new Meowvie(m.secret, m.endpoint);
-	const crawler = new JSDOMCrawler({});
+	const crawler = new JSDOMCrawler({ proxyConfiguration });
 
 	crawler.router.addDefaultHandler(
 		async ({ request, enqueueLinks, log, window: { document } }) => {
