@@ -12,6 +12,7 @@
     "apps/oploverz",
     "apps/otakudesu",
     "apps/melong",
+    "apps/samehadaku",
     "apps/kusonime"
   ],
   "packageManager": "npm@8.19.4",

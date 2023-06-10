@@ -1,0 +1,9 @@
+{
+	"actorSpecification": 1,
+	"name": "otakudesu",
+	"version": "0.0",
+	"buildTag": "latest",
+	"dockerContextDir": "../../../",
+	"dockerfile": "./Dockerfile",
+	"environmentVariables": {}
+}
