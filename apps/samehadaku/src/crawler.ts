@@ -29,7 +29,7 @@ export function createCrawler({ meowvie: m, domain, proxies }: Options) {
 						?.getAttribute("content") || request.url;
 				const pageUrl = request.url;
 				const downloadUrl = [] as DownloadUrl[];
-				for (const div of document.querySelectorAll("div.pencenter > div.download-eps")) {
+				for (const div of document.querySelectorAll("div > div.download-eps")) {
 					const format = div.querySelector("p b")?.textContent || ""
 					for (const li of div.querySelectorAll("ul li")) {
 						const resolution = li.querySelector("strong")?.textContent || ""
@@ -73,7 +73,7 @@ export function createCrawler({ meowvie: m, domain, proxies }: Options) {
 		crawler,
 		run() {
 			return crawler.run([
-				`https://${domain}/tonikaku-kawaii-season-2-episode-10/`,
+				`https://${domain}/batch/majutsushi-orphen-hagure-tabi-season-3-batch`,
 			]);
 		},
 	};
