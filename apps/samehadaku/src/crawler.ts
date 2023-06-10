@@ -9,7 +9,7 @@ export interface Options {
 	domain: string;
 }
 
-export function createCrawler({ meowvie: m, domain, proxies }: Options) {
+export function createCrawler({ meowvie: m, domain }: Options) {
 	const meowvie = new Meowvie(m.secret, m.endpoint);
 	const crawler = new JSDOMCrawler({  });
 
@@ -25,8 +25,8 @@ export function createCrawler({ meowvie: m, domain, proxies }: Options) {
 			if (titleEl) {
 				const title = titleEl.textContent!;
 				const thumbnailUrl =
-					document.querySelector(`meta[property="og:image"]`)
-						?.getAttribute("content") || request.url;
+					document.querySelector<HTMLImageElement>(`img.anmsa`)
+						?.src || request.url
 				const pageUrl = request.url;
 				const downloadUrl = [] as DownloadUrl[];
 				for (const div of document.querySelectorAll("div > div.download-eps")) {
@@ -52,7 +52,7 @@ export function createCrawler({ meowvie: m, domain, proxies }: Options) {
 						title,
 						downloadUrl,
 						pageUrl,
-						provider: "oploverz",
+						provider: "samehadaku",
 						thumbnailUrl,
 					}).then(m => {
 						log.info("stored into meowvie", {
