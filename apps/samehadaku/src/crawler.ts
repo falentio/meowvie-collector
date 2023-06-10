@@ -15,11 +15,6 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 		autoscaledPoolOptions: {
 			minConcurrency: +(process.env.CONCURRENCY || "30"),
 		}
-		, preNavigationHooks: [
-			async (d, dd) => {
-				dd.url = new URL(dd.url)
-			}
-		]
 	});
 
 	crawler.router.addDefaultHandler(

@@ -12,6 +12,7 @@ const { run } = createCrawler({
 		secret: input?.meowvieSecret || process.env.MEOWVIE_SECRET || "secret",
 	},
 	domain: process.env.DOMAIN || "oploverz.best",
+	proxies: input.proxies,
 });
 
 await run();
