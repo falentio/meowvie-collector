@@ -14,17 +14,17 @@ export function createCrawler({ meowvie: m, domain }: Options) {
     const crawler = new JSDOMCrawler({
         maxConcurrency: 1,
     })
-    
+
     crawler.router.addDefaultHandler(async ({ window, request, log, enqueueLinks }) => {
         const { document } = window
         log.info("crawling", {
             url: request.url,
         })
-    
+
         const downloadEl = document.querySelector("div.download > h4")
         if (downloadEl) {
             const title = document.querySelector("h1.posttl")?.textContent ||
-                document.querySelector("title")?.textContent || 
+                document.querySelector("title")?.textContent ||
                 request.url
             const thumbnailUrl = document.querySelector("div.cukder > img")?.getAttribute("src") || ""
             const pageUrl = request.url
@@ -55,17 +55,18 @@ export function createCrawler({ meowvie: m, domain }: Options) {
                 downloadUrl: undefined,
             })
         }
-    
+
         await enqueueLinks({
             strategy: "same-hostname",
         })
     })
-    
+
     return {
         crawler,
         run() {
             return crawler.run([
                 `https://${domain}/episode/ics-episode-9-sub-indo/`,
+                `https://${domain}/?${Date.now()}`,
             ])
         }
     }

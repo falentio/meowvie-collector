@@ -67,11 +67,13 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 		},
 	);
 
+
 	return {
 		crawler,
 		run() {
 			return crawler.run([
 				`https://${domain}/boruto-batch-subtitle-indonesia-5/`,
+				`https://${domain}/?${Date.now()}`,
 			]);
 		},
 	};

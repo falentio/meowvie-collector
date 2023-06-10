@@ -9,7 +9,8 @@ const { run } = createCrawler({
         endpoint: input.meowvieEndpoint || process.env.MEOWVIE_ENDPOINT || "http://localhost:8080",
         secret: input.meowvieSecret || process.env.MEOWVIE_SECRET || "secret",
     },
-    proxies: []
+    proxies: [],
+    domain: "melongmovie.site"
 })
 
 await run()

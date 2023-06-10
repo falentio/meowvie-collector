@@ -8,19 +8,21 @@ export interface CreateCrawlerOptions {
         secret: string
     }
     proxies: string[]
+    domain: string
 }
 
 export const createCrawler = (opts: CreateCrawlerOptions) => {
     // const proxyConfiguration = new ProxyConfiguration({
     //     proxyUrls: opts.proxies,
     // })
+    const { domain } = opts
     const meowvie = new Meowvie(opts.meowvie.secret, opts.meowvie.endpoint)
     const crawler = new JSDOMCrawler({
         maxConcurrency: 5,
         // proxyConfiguration,
     })
 
-    crawler.router.addDefaultHandler(async ({ enqueueLinks, request, log, window  }) => {
+    crawler.router.addDefaultHandler(async ({ enqueueLinks, request, log, window }) => {
         log.info("crawling", {
             url: request.url,
             meowvie: opts.meowvie.endpoint,
@@ -70,7 +72,7 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
             if (!downloadUrl.length) {
                 return
             }
-            const title = document.querySelector("h1")?.textContent || 
+            const title = document.querySelector("h1")?.textContent ||
                 document.querySelector("title")?.textContent ||
                 request.url
             const thumbnailUrl = document.querySelector("img.entry-image.wp-post-image")?.getAttribute("src")
@@ -87,7 +89,9 @@ export const createCrawler = (opts: CreateCrawlerOptions) => {
     return {
         crawler,
         run() {
-            return crawler.run(["https://melongmovie.site/reality-2023/", "https://melongmovie.site"])
+            return crawler.run(["https://melongmovie.site/reality-2023/", "https://melongmovie.site",
+                `https://${domain}/?${Date.now()}`,
+            ])
         }
     }
 }

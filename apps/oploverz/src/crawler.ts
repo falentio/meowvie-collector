@@ -90,6 +90,7 @@ export function createCrawler({ meowvie: m, domain, proxies }: Options) {
 		run() {
 			return crawler.run([
 				`https://${domain}/dr-stone-season-3-episode-10-subtitle-indonesia/`,
+				`https://${domain}/?${Date.now()}`,
 			]);
 		},
 	};
