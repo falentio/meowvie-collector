@@ -52,7 +52,7 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 				if (!downloadUrl.length) {
 					log.error("empty downloadurl", { request });
 				} else {
-					meowvie.movie.create({
+					await meowvie.movie.create({
 						title,
 						downloadUrl,
 						pageUrl,
