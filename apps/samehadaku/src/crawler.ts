@@ -63,9 +63,7 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 							...m,
 							downloadUrl: downloadUrl.length,
 						});
-					}).catch(e => {
-						log.error("error while storing into meowive", { e });
-					});
+					})
 				}
 			}
 
