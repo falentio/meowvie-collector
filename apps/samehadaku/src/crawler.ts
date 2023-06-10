@@ -12,6 +12,9 @@ export interface Options {
 export function createCrawler({ meowvie: m, domain }: Options) {
 	const meowvie = new Meowvie(m.secret, m.endpoint);
 	const crawler = new JSDOMCrawler({
+		autoscaledPoolOptions: {
+			minConcurrency: +(process.env.CONCURRENCY || "30"),
+		}
 	});
 
 	crawler.router.addDefaultHandler(
