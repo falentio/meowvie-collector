@@ -11,7 +11,8 @@ export interface Options {
 
 export function createCrawler({ meowvie: m, domain }: Options) {
 	const meowvie = new Meowvie(m.secret, m.endpoint);
-	const crawler = new JSDOMCrawler({  });
+	const crawler = new JSDOMCrawler({
+	});
 
 	crawler.router.addDefaultHandler(
 		async ({ request, enqueueLinks, log, window: { document } }) => {
