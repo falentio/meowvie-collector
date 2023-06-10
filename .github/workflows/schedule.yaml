@@ -13,3 +13,6 @@ jobs:
       with:
         node-version: 18.x
     - run: node scripts/index.mjs 
+      env:
+        APIFY_KUSONIME: ${{ secrets.APIFY_KUSONIME }}
+        APIFY_SAMEHADAKU: ${{ secrets.APIFY_SAMEHADAKU }}
