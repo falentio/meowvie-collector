@@ -12,7 +12,8 @@
     "packages/client",
     "packages/tsconfig",
     "apps/otakudesu",
-    "apps/melong"
+    "apps/melong",
+    "apps/kusonime"
   ],
   "packageManager": "npm@8.19.4",
   "engines": {
