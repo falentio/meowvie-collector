@@ -7,10 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "workspaces": [
-    "./packages",
-    "./apps",
     "packages/client",
     "packages/tsconfig",
+    "apps/oploverz",
     "apps/otakudesu",
     "apps/melong",
     "apps/kusonime"
