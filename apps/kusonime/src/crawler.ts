@@ -11,8 +11,11 @@ export interface Options {
 
 export function createCrawler({ meowvie: m, domain }: Options) {
 	const meowvie = new Meowvie(m.secret, m.endpoint);
-	const crawler = new JSDOMCrawler({});
-
+	const crawler = new JSDOMCrawler({
+	});
+	crawler.requestQueue?.addRequests([
+		{ url: `https://${domain}/`, uniqueKey: new Date().toString() },
+	])
 	crawler.router.addDefaultHandler(
 		async ({ request, enqueueLinks, log, window: { document } }) => {
 			log.info("crawling", {
@@ -73,7 +76,7 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 		run() {
 			return crawler.run([
 				`https://${domain}/boruto-batch-subtitle-indonesia-5/`,
-				`https://${domain}/?${Date.now()}`,
+				`https://${domain}/`,
 			]);
 		},
 	};
