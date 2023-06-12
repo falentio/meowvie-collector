@@ -72,7 +72,6 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 		crawler,
 		run() {
 			return crawler.run([
-				`https://${domain}/boruto-batch-subtitle-indonesia-5/`,
 				{ url: `https://${domain}/`, uniqueKey: new Date().toString(), id: Math.random().toString(36) },
 			]);
 		},
