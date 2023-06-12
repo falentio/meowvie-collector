@@ -72,7 +72,7 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 		crawler,
 		run() {
 			return crawler.run([
-				{ url: `https://${domain}/`, uniqueKey: new Date().toString(), id: Math.random().toString(36) },
+				{ url: `https://${domain}/`, uniqueKey: new Date().toString() },
 			]);
 		},
 	};
