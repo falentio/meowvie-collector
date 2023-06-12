@@ -14,7 +14,7 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 	const crawler = new JSDOMCrawler({
 	});
 	crawler.requestQueue?.addRequests([
-		{ url: `https://${domain}/`, uniqueKey: new Date().toString() },
+		{ url: `https://${domain}/`, uniqueKey: new Date().toString(), id: Math.random().toString(36) },
 	])
 	crawler.router.addDefaultHandler(
 		async ({ request, enqueueLinks, log, window: { document } }) => {
