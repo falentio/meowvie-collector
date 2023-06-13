@@ -25,18 +25,16 @@ export function createCrawler({ meowvie: m, domain }: Options) {
 			const downloadUrl = [] as DownloadUrl[]
 			for (const soraurlx of document.querySelectorAll("div.soraurlx")) {
 				const resolution = soraurlx.querySelector("strong")?.textContent || ""
-				const a = soraurlx.querySelector("a")
-				if (!a) {
-					continue
+				for (const a of soraurlx.querySelectorAll("a")) {
+					const url = a.href
+					const server = a.textContent || ""
+					downloadUrl.push({
+						server,
+						resolution,
+						url,
+						size: ""
+					})
 				}
-				const url = a.href
-				const server = a.textContent || ""
-				downloadUrl.push({
-					server,
-					resolution,
-					url,
-					size: ""
-				})
 			}
 			if (downloadUrl.length) {
 				const thumbnailUrl = document.querySelector<HTMLImageElement>("img.ts-post-image")?.src || request.url
