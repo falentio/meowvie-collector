@@ -1,0 +1,19 @@
+{
+  "typescript": {
+    "indentWidth": 4,
+    "lineWidth": 80,
+    "useTabs": true
+  },
+  "json": {
+  },
+  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json}"],
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json",
+    "./dist"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.84.4.wasm",
+    "https://plugins.dprint.dev/json-0.17.2.wasm"
+  ]
+}
