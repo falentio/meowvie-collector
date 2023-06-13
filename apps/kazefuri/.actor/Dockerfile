@@ -6,7 +6,7 @@ COPY package* ./
 RUN npm ci
 
 COPY packages packages
-COPY apps/kusonime apps/kusonime
+COPY apps/kazefuri apps/kazefuri
 RUN npm run build -ws --if-present
 
-CMD npm run -w @meowvie-collector/kusonime start
+CMD npm run -w @meowvie-collector/kazefuri start
